@@ -45,7 +45,7 @@ class Table extends React.Component {
     pieceInside = () => {
         var parentPawn = document.getElementsByClassName("column");
         if( parentPawn.className !== this.state.pieceInside ) {
-            parentPawn.classList.add("piece-inside");
+            // parengtPawn.classList.add("piece-inside");
         }
     }
   
@@ -78,3 +78,5 @@ class Table extends React.Component {
 }
 
 ReactDOM.render(<Table />, document.getElementById('table'));
+
+/* Sunt bine */
