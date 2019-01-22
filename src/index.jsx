@@ -34,10 +34,7 @@ class Table extends React.Component {
     //Function to append a piece to specific point in table
     placePiece = (x, y) => {
         if ( x == 4 && y == 5 ) {
-            this.state.piece = React.createElement(
-                "b",
-                {className: 'pawn'},
-            );
+            this.state.piece = <b className="pawn"></b>
             return this.state.piece;
         }
     }
@@ -78,4 +75,3 @@ class Table extends React.Component {
 }
 
 ReactDOM.render(<Table />, document.getElementById('table'));
-///
