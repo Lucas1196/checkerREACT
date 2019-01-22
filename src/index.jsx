@@ -78,5 +78,3 @@ class Table extends React.Component {
 }
 
 ReactDOM.render(<Table />, document.getElementById('table'));
-
-/*This is my file */
