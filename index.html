@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Checker
+    </title>
+    <style>
+        body {
+            text-align:center;
+            background-color:pink;
+        }
+        #table{
+            display: inline-block;
+            margin-top:300px;
+        }
+        #table div{
+            line-height: 1px;
+        }
+        #table div span{
+            position:relative;      
+            display: inline-block;
+            width: 42px;
+            height: 42px;
+            cursor:pointer;
+        }
+        .pawn {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            height:60%;
+            width:60%;
+            cursor:pointer;
+            transition:all 0.3s ease-in 0s;
+            z-index:444;
+            border-radius:50%;
+        }
+        .white {
+            background-color:#fff;
+        }
+        .black {
+            background-color:#000;
+        }
+        .white .pawn {
+            background-color:#000;
+        }
+        .black .pawn {
+            background-color:#fff;;
+        }
+    </style>
+  </head>
+  <body>
+
+  <div id="table">
+
+  </div>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <!-- Production React -->
+  <!-- <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script> -->
+  <!-- JSX -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="index.js"></script>
+  </body>
+</html>
