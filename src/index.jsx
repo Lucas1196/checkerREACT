@@ -4,7 +4,6 @@ class Table extends React.Component {
         this.state = { 
             piece: '',
             selectedPiece: 'pawn',
-            pieceFalse: 'column',
         };
     }
     
@@ -32,7 +31,7 @@ class Table extends React.Component {
         }
         return columns;
     }
-    //Function to append a piece to specific point in table
+    //Function to append a piece to specific point in table and give to the column which contains THE PIECE class PIECE-INSIDE(Distinct Class)
     placePiece = (x, y) => {
         if ( x == 3 && y == 3 ) {
             this.state.piece = <b className="pawn"></b>
@@ -55,7 +54,7 @@ class Table extends React.Component {
             return;
         }
         else if ( e.target.className !== this.state.selectedPiece ) {
-            // {this.legalMove()}
+            {this.legalMove()}
             console.log("I am the cell without piece");
             return;
         }
@@ -64,8 +63,9 @@ class Table extends React.Component {
             console.log("i am nothing");
         }
     }
-    legalMove = (el) => {
-
+    legalMove = () => {
+        var container = document.getElementsByClassName("piece-inside")[0];
+        console.log(container);
     }
     render() {
         return(

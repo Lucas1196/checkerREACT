@@ -78,7 +78,9 @@ var Table = function (_React$Component) {
                 console.log("I am the piece and I am ok");
                 return;
             } else if (e.target.className !== _this.state.selectedPiece) {
-                // {this.legalMove()}
+                {
+                    _this.legalMove();
+                }
                 console.log("I am the cell without piece");
                 return;
             } else if (!_this.state.selectedPiece(e.target)) {
@@ -87,19 +89,21 @@ var Table = function (_React$Component) {
             }
         };
 
-        _this.legalMove = function (el) {};
+        _this.legalMove = function () {
+            var container = document.getElementsByClassName("piece-inside")[0];
+            console.log(container);
+        };
 
         _this.state = {
             piece: '',
-            selectedPiece: 'pawn',
-            pieceFalse: 'column'
+            selectedPiece: 'pawn'
         };
         return _this;
     }
 
     //Function to create table and color it
 
-    //Function to append a piece to specific point in table
+    //Function to append a piece to specific point in table and give to the column which contains THE PIECE class PIECE-INSIDE(Distinct Class)
 
 
     //Function for check e.Target
