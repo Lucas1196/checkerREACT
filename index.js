@@ -52,24 +52,24 @@ var Table = function (_React$Component) {
                 columns.push(React.createElement(
                     'div',
                     { className: 'column', key: y },
-                    cells,
-                    _this.pieceInside()
+                    cells
                 ));
             }
             return columns;
         };
 
         _this.placePiece = function (x, y) {
-            if (x == 4 && y == 5) {
-                _this.state.piece = React.createElement("b", { className: 'pawn' });
+            if (x == 3 && y == 3) {
+                _this.state.piece = React.createElement('b', { className: 'pawn' });
+                window.onload = function () {
+                    var parentPawn = document.getElementsByClassName("column");
+                    var pawn = document.getElementsByClassName("pawn");
+                    var columnPiece = parentPawn[y];
+                    if (pawn.length > 0) {
+                        columnPiece.className += " piece-inside";
+                    }
+                };
                 return _this.state.piece;
-            }
-        };
-
-        _this.pieceInside = function () {
-            var parentPawn = document.getElementsByClassName("column");
-            if (parentPawn.className !== _this.state.pieceInside) {
-                // parengtPawn.classList.add("piece-inside");
             }
         };
 
@@ -92,15 +92,14 @@ var Table = function (_React$Component) {
         _this.state = {
             piece: '',
             selectedPiece: 'pawn',
-            pieceInside: 'piece-inside'
+            pieceFalse: 'column'
         };
         return _this;
     }
+
     //Function to create table and color it
 
     //Function to append a piece to specific point in table
-
-    //Function to add class "piece-inside" to the column which contains the pawn
 
 
     //Function for check e.Target

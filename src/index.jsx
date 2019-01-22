@@ -4,9 +4,10 @@ class Table extends React.Component {
         this.state = { 
             piece: '',
             selectedPiece: 'pawn',
-            pieceInside: 'piece-inside',
+            pieceFalse: 'column',
         };
     }
+    
     //Function to create table and color it
     createTable = () => {
     
@@ -24,28 +25,29 @@ class Table extends React.Component {
                 }
                 else {
                     cells.push(<span className = "black" key = {x} onClick={((e) => this.checkTarget(e))}>{this.placePiece(x, y)}</span>)
-                }
+                } 
             }
             //Create the parent and add the children
-            columns.push(<div className = "column" key = {y}>{cells}{this.pieceInside()}</div>)
+            columns.push(<div className = "column" key = {y}>{cells}</div>)
         }
         return columns;
     }
     //Function to append a piece to specific point in table
     placePiece = (x, y) => {
-        if ( x == 4 && y == 5 ) {
+        if ( x == 3 && y == 3 ) {
             this.state.piece = <b className="pawn"></b>
+            window.onload = function () {
+                var parentPawn = document.getElementsByClassName("column");
+                var pawn = document.getElementsByClassName("pawn");
+                const columnPiece = parentPawn[y];
+                if (pawn.length > 0) {
+                    columnPiece.className += " piece-inside";
+                }
+            }
             return this.state.piece;
         }
     }
-    //Function to add class "piece-inside" to the column which contains the pawn
-    pieceInside = () => {
-        var parentPawn = document.getElementsByClassName("column");
-        if( parentPawn.className !== this.state.pieceInside ) {
-            // parengtPawn.classList.add("piece-inside");
-        }
-    }
-  
+
     //Function for check e.Target
     checkTarget = (e) => {
         if ( e.target.className == this.state.selectedPiece ) {
