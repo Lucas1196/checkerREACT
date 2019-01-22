@@ -63,9 +63,35 @@ class Table extends React.Component {
             console.log("i am nothing");
         }
     }
-    legalMove = () => {
+    legalMove = (el) => {
         var container = document.getElementsByClassName("piece-inside")[0];
-        console.log(container);
+        // var yPawn = container.getAttribute("data-y"); // ar mai trebui sa gasesc aici o metoda
+        var pieceChildren = container.children;
+
+        for (val of pieceChildren) {
+            if (val.firstChild) {
+                break;
+            }
+        }
+
+        // var xPawn = val.getAttribute("data-x"); // aici o metoda
+
+        // var x = el.getAttribute("data-x"); // aici o metoda
+        // var parentEl = el.parentElement; // aici o metoda
+        // var y = parentEl.getAttribute("data-y"); // aici o metoda
+
+        // if((parseInt(x) == parseInt(xPawn)-1 || parseInt(x) == parseInt(xPawn)+1) && (parseInt(y) == parseInt(yPawn)-1 || parseInt(y) == parseInt(yPawn)+1)) {
+        //     let newContainer = el.parentElement.classList.add("piece-inside");
+        //     let oldContainer = container.classList.remove("piece-inside");
+        //     let newpiece = el.appendChild(document.createElement("b"));
+        //         newpiece.classList.add("pawn");
+        //         piece.remove();
+        //         piece = newpiece;
+        // }
+        // else {
+        //     console.log("Nu e o mutare buna!");
+        // } // aici o metoda
+
     }
     render() {
         return(
