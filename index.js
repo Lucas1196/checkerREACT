@@ -68,8 +68,8 @@ var Table = function (_React$Component) {
 
         _this.pieceInside = function () {
             var parentPawn = document.getElementsByClassName("column");
-            if (parentPawn.className != _this.state.pieceInside) {
-                parentPawn.classList.add("piece-inside");
+            if (parentPawn.className !== _this.state.pieceInside) {
+                // parengtPawn.classList.add("piece-inside");
             }
         };
 
