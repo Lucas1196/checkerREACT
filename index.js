@@ -59,7 +59,7 @@ var Table = function (_React$Component) {
         };
 
         _this.placePiece = function (x, y) {
-            if (x == 3 && y == 3) {
+            if (x == 3 && y == 4) {
                 _this.state.piece = React.createElement('b', { className: 'pawn' });
                 window.onload = function () {
                     var parentPawn = document.getElementsByClassName("column");
@@ -68,6 +68,8 @@ var Table = function (_React$Component) {
                     if (pawn.length > 0) {
                         columnPiece.className += " piece-inside";
                     }
+                    var containerPiece = { key: y };
+                    console.log(containerPiece);
                 };
                 return _this.state.piece;
             }
@@ -84,16 +86,15 @@ var Table = function (_React$Component) {
                 console.log("I am the cell without piece");
                 return;
             } else if (!_this.state.selectedPiece(e.target)) {
-                // {this.legalMove()}
                 console.log("i am nothing");
             }
         };
 
         _this.legalMove = function (el) {
             var container = document.getElementsByClassName("piece-inside")[0];
-            // var yPawn = container.getAttribute("data-y"); // ar mai trebui sa gasesc aici o metoda
+            // let yPawn = container.getAttribute();
+            // console.log(yPawn);
             var pieceChildren = container.children;
-
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
             var _iteratorError = undefined;
@@ -106,7 +107,6 @@ var Table = function (_React$Component) {
                         break;
                     }
                 }
-
                 // var xPawn = val.getAttribute("data-x"); // aici o metoda
 
                 // var x = el.getAttribute("data-x"); // aici o metoda
@@ -114,7 +114,7 @@ var Table = function (_React$Component) {
                 // var y = parentEl.getAttribute("data-y"); // aici o metoda
 
                 // if((parseInt(x) == parseInt(xPawn)-1 || parseInt(x) == parseInt(xPawn)+1) && (parseInt(y) == parseInt(yPawn)-1 || parseInt(y) == parseInt(yPawn)+1)) {
-                //     let newContainer = el.parentElement.classList.add("piece-inside");
+                //     let newContainer = el.parent Element.classList.add("piece-inside");
                 //     let oldContainer = container.classList.remove("piece-inside");
                 //     let newpiece = el.appendChild(document.createElement("b"));
                 //         newpiece.classList.add("pawn");
@@ -142,15 +142,23 @@ var Table = function (_React$Component) {
 
         _this.state = {
             piece: '',
-            selectedPiece: 'pawn'
+            selectedPiece: 'pawn',
+            containerPiece: ''
         };
         return _this;
     }
 
     //Function to create table and color it
 
+
     //Function to append a piece to specific point in table and give to the column which contains THE PIECE class PIECE-INSIDE(Distinct Class)
 
+
+    // componentDidMount = () => {
+    //     this.setState({
+    //         containerPiece: containerPiece,
+    //     })
+    // }
 
     //Function for check e.Target
 
