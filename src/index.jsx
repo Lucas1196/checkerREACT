@@ -5,6 +5,8 @@ class Table extends React.Component {
             piece: '',
             selectedPiece: 'pawn',
             containerPiece: '',
+            x: 4,
+            y: 3,
         }
     }
     
@@ -35,7 +37,7 @@ class Table extends React.Component {
 
     //Function to append a piece to specific point in table and give to the column which contains THE PIECE class PIECE-INSIDE(Distinct Class)
     placePiece = (x, y) => {
-        if ( x == 3 && y == 4 ) {
+        if ( x == this.state.x && y == this.state.y ) {
             this.state.piece = <b className="pawn"></b>
             window.onload = function () {
                 let parentPawn = document.getElementsByClassName("column");
@@ -44,14 +46,12 @@ class Table extends React.Component {
                 if (pawn.length > 0) {
                     columnPiece.className += " piece-inside";
                 }
-                let containerPiece = {key: y};
-                console.log(containerPiece);
             }
             return this.state.piece;
         }
     }
-
-    // componentDidMount = () => {
+    
+    // componentDidUpdate = () => {
     //     this.setState({
     //         containerPiece: containerPiece,
     //     })
@@ -74,22 +74,21 @@ class Table extends React.Component {
     }
     legalMove = (el) => {
         let container = document.getElementsByClassName("piece-inside")[0];
-        // let yPawn = container.getAttribute();
-        // console.log(yPawn);
+        let yPawn = this.state.y;
+        console.log(yPawn);
         let pieceChildren = container.children;
         for (val of pieceChildren) {
             if (val.firstChild) {
                 break;
             }
         }
-        // var xPawn = val.getAttribute("data-x"); // aici o metoda
+        var xPawn = this.state.x;
+        // var x = el.getAttribute("data-x"); 
+        // var parentEl = el.parentElement; 
+        // var y = parentEl.getAttribute("data-y"); 
 
-        // var x = el.getAttribute("data-x"); // aici o metoda
-        // var parentEl = el.parentElement; // aici o metoda
-        // var y = parentEl.getAttribute("data-y"); // aici o metoda
-
-        // if((parseInt(x) == parseInt(xPawn)-1 || parseInt(x) == parseInt(xPawn)+1) && (parseInt(y) == parseInt(yPawn)-1 || parseInt(y) == parseInt(yPawn)+1)) {
-        //     let newContainer = el.parent Element.classList.add("piece-inside");
+        // if(x == xPawn-1 || x == xPawn+1) && (y == yPawn-1 || y == yPawn+1)) {
+        //     let newContainer = el.parentElement.classList.add("piece-inside");
         //     let oldContainer = container.classList.remove("piece-inside");
         //     let newpiece = el.appendChild(document.createElement("b"));
         //         newpiece.classList.add("pawn");
@@ -98,7 +97,7 @@ class Table extends React.Component {
         // }
         // else {
         //     console.log("Nu e o mutare buna!");
-        // } // aici o metoda
+        // }
 
     }
     render() {

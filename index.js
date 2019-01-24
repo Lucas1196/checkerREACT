@@ -59,7 +59,7 @@ var Table = function (_React$Component) {
         };
 
         _this.placePiece = function (x, y) {
-            if (x == 3 && y == 4) {
+            if (x == _this.state.x && y == _this.state.y) {
                 _this.state.piece = React.createElement('b', { className: 'pawn' });
                 window.onload = function () {
                     var parentPawn = document.getElementsByClassName("column");
@@ -68,8 +68,6 @@ var Table = function (_React$Component) {
                     if (pawn.length > 0) {
                         columnPiece.className += " piece-inside";
                     }
-                    var containerPiece = { key: y };
-                    console.log(containerPiece);
                 };
                 return _this.state.piece;
             }
@@ -92,8 +90,8 @@ var Table = function (_React$Component) {
 
         _this.legalMove = function (el) {
             var container = document.getElementsByClassName("piece-inside")[0];
-            // let yPawn = container.getAttribute();
-            // console.log(yPawn);
+            var yPawn = _this.state.y;
+            console.log(yPawn);
             var pieceChildren = container.children;
             var _iteratorNormalCompletion = true;
             var _didIteratorError = false;
@@ -107,23 +105,6 @@ var Table = function (_React$Component) {
                         break;
                     }
                 }
-                // var xPawn = val.getAttribute("data-x"); // aici o metoda
-
-                // var x = el.getAttribute("data-x"); // aici o metoda
-                // var parentEl = el.parentElement; // aici o metoda
-                // var y = parentEl.getAttribute("data-y"); // aici o metoda
-
-                // if((parseInt(x) == parseInt(xPawn)-1 || parseInt(x) == parseInt(xPawn)+1) && (parseInt(y) == parseInt(yPawn)-1 || parseInt(y) == parseInt(yPawn)+1)) {
-                //     let newContainer = el.parent Element.classList.add("piece-inside");
-                //     let oldContainer = container.classList.remove("piece-inside");
-                //     let newpiece = el.appendChild(document.createElement("b"));
-                //         newpiece.classList.add("pawn");
-                //         piece.remove();
-                //         piece = newpiece;
-                // }
-                // else {
-                //     console.log("Nu e o mutare buna!");
-                // } // aici o metoda
             } catch (err) {
                 _didIteratorError = true;
                 _iteratorError = err;
@@ -138,12 +119,31 @@ var Table = function (_React$Component) {
                     }
                 }
             }
+
+            var xPawn = _this.state.x;
+            // var x = el.getAttribute("data-x"); 
+            // var parentEl = el.parentElement; 
+            // var y = parentEl.getAttribute("data-y"); 
+
+            // if(x == xPawn-1 || x == xPawn+1) && (y == yPawn-1 || y == yPawn+1)) {
+            //     let newContainer = el.parentElement.classList.add("piece-inside");
+            //     let oldContainer = container.classList.remove("piece-inside");
+            //     let newpiece = el.appendChild(document.createElement("b"));
+            //         newpiece.classList.add("pawn");
+            //         piece.remove();
+            //         piece = newpiece;
+            // }
+            // else {
+            //     console.log("Nu e o mutare buna!");
+            // }
         };
 
         _this.state = {
             piece: '',
             selectedPiece: 'pawn',
-            containerPiece: ''
+            containerPiece: '',
+            x: 4,
+            y: 3
         };
         return _this;
     }
@@ -154,7 +154,7 @@ var Table = function (_React$Component) {
     //Function to append a piece to specific point in table and give to the column which contains THE PIECE class PIECE-INSIDE(Distinct Class)
 
 
-    // componentDidMount = () => {
+    // componentDidUpdate = () => {
     //     this.setState({
     //         containerPiece: containerPiece,
     //     })
